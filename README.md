@@ -78,3 +78,70 @@ Now we need to "server" your self hosted logseq to the internet to do that
 - serve 'asset.domain.com' to `/path/to/logseq/public/`
 
 A dummy copy of the ngix.conf file can be found [here](./ngnix.conf)
+
+## Hardcoded values
+
+`shadow-cljs.edn`: line 16
+
+```clojure
+    :release {:asset-path "https://asset.logseq.com/static/js"}
+```
+ 
+`src/main/frontend/config.cljs`: line 17
+
+```clojure
+  (def app-name "logseq")
+```  
+
+
+`src/main/frontend/config.cljs`: line 18-21
+
+```clojure
+(def website
+(if dev?
+  "http://localhost:3000"
+  (util/format "https://%s.com" app-name)))
+```  
+
+`src/main/frontend/config.cljs`: line 28
+
+```clojure
+(def asset-domain (util/format "https://asset.%s.com"
+ app-name))
+```  
+
+`logseq.jar/static/js/publishing/cljs-runtime`: line 34
+
+```clojure
+frontend.config.app_name = "logseq";
+```
+
+`logseq.jar/static/js/publishing/cljs-runtime`: line 34
+
+```clojure
+frontend.config.website = (cljs.core.truth_(frontend.config.dev_QMARK_)?"http://localhost:3000":frontend.util.format.cljs$core$IFn$_invoke$arity$variadic("https://%s.com",cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([frontend.config.app_name], 0)));
+```
+
+`logseq.jar/static/js/publishing/cljs-runtime`: line 36
+
+```clojure
+frontend.config.asset_domain = frontend.util.format.cljs$core$IFn$_invoke$arity$variadic("https://asset.%s.com",cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([frontend.config.app_name], 0));
+```
+
+`logseq.jar/static/js/cljs-runtime/frontend.config.js`: line 34
+
+```clojure
+frontend.config.app_name = "logseq";
+```
+
+`logseq.jar/static/js/cljs-runtime/frontend.config.js`: line 34
+
+```clojure
+frontend.config.website = (cljs.core.truth_(frontend.config.dev_QMARK_)?"http://localhost:3000":frontend.util.format.cljs$core$IFn$_invoke$arity$variadic("https://%s.com",cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([frontend.config.app_name], 0)));
+```
+
+`logseq.jar/static/js/cljs-runtime/frontend.config.js`: line 36
+
+```clojure
+frontend.config.asset_domain = frontend.util.format.cljs$core$IFn$_invoke$arity$variadic("https://asset.%s.com",cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([frontend.config.app_name], 0));
+```
