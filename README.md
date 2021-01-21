@@ -77,4 +77,4 @@ Now we need to "server" your self hosted logseq to the internet to do that
 - reverse proxy requests to  'domain.com' to 'logseq.jar' (http://localhost:3000)
 - serve 'asset.domain.com' to `/path/to/logseq/public/`
 
-A dummy copy of the ngix.conf file can be found ./logseq-guide/blob/master/ngnix.conf
+A dummy copy of the ngix.conf file can be found [here](./ngnix.conf)
