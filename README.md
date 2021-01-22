@@ -23,25 +23,25 @@ Reference: https://github.com/logseq/logseq/tree/defclass/electron#set-up-develo
 2. Download backend.jar from https://github.com/logseq/logseq/releases/tag/0.0.1 and place it in `~/logsec/resources`
 3. In [~/logseq/src/main/frontend/config.cljs](https://github.com/logseq/logseq/blob/master/src/main/frontend/config.cljs)
    line 18 replace
-```javascript
+```clojure
 (def website
   (if dev?
     "http://localhost:3000"
     (util/format "https://%s.com" app-name)))
 ```
 by
-```javascript
+```clojure
 (def website
   (if dev?
     "http://localhost:3000"
-    (util/format "https://yourdomain.com" app-name)))
+    "https://yourdomain.com"))
 ```
    line 38 replace 
-```javascript
+```clojure
 (def github-app-name (if dev? GITHUB_APP_NAME "logseq"))
 ```
 by
-```javascript
+```clojure
 (def github-app-name (if dev? GITHUB_APP_NAME "yourappname"))
 ```
 
