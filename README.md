@@ -47,7 +47,7 @@ by
 
 4. Set the envrionment variables
 ```shell
-export GITHUB_REDIRECT_URI=https://yourdomain.com/auth/github
+export GITHUB_REDIRECT_URI="https://yourdomain.com/auth/github"
 export ENVIRONMENT="production"
 export JWT_SECRET="somepass"
 export COOKIE_SECRET="54676c2c5324279480a6ee1af0792588"
@@ -57,10 +57,10 @@ export GITHUB_APP2_KEY="AppClientID"
 export GITHUB_APP2_SECRET="AppClientSecret"
 export GITHUB_APP_PEM="/path/to/github/pem/file/yourappname.2021-01-19.private-key.pem"
 export LOG_PATH="/tmp/logseq"
-export DATABASE_URL=postgres://username:password@localhost:5432/logseq
-export PG_USERNAME="usernmae"
+export DATABASE_URL="postgres://localhost:5432/logseq"
+export PG_USERNAME="username"
 export PG_PASSWORD="password"
-export WEBSITE_URL=https://yourdomain.com/
+export WEBSITE_URL="https://yourdomain.com/"
 export COOKIE_DOMAIN="yourdomain.com"
 ```
 
