@@ -20,7 +20,7 @@ Reference: https://github.com/logseq/logseq/tree/defclass/electron#set-up-develo
 
 ## Running LogSeq 
 1. Clone the logseq repo git clone `https://github.com/logseq/logseq`
-2. Download backend.jar from https://github.com/logseq/logseq/releases/tag/0.0.1 and place it in `~/logsec/resources`
+2. Download backend.jar from https://github.com/logseq/logseq/releases/tag/0.0.1-100 and place it in `~/logsec/resources`
 3. In [~/logseq/src/main/frontend/config.cljs](https://github.com/logseq/logseq/blob/master/src/main/frontend/config.cljs)
    line 18 replace
 ```clojure
